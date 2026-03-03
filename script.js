@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Books is not version 2");
             return;
         }
+        window.fileName = file.name;
         renderSidePanel();
         renderMetadataUI();
         document.getElementById("editorSection").style.display = "block";
@@ -321,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const a = document.createElement("a");
         a.href = URL.createObjectURL(newEpubBlob);
-        a.download = "modified.epub";
+        a.download = window.fileName;
         a.click();
     }
 
