@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPUB Metadata Editor</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- App Icon -->
+    <link rel="icon" href="icons/icon-192.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 id="appTitle">EPUB Metadata Editor</h1>
+
+    <!-- Upload Section -->
+    <div id="uploadSection">
+        <input type="file" id="zipInput" accept=".epub">
+    </div>
+
+    <!-- EDITOR SECTION (hidden until EPUB is loaded) -->
+    <div id="editorSection" style="display:none;">
+
+        <div id="layoutWrapper">
+
+            <!-- SIDE PANEL -->
+            <div id="sidePanel">
+                <h3>Add Field</h3>
+                <div id="addFieldList"></div>
+            </div>
+
+            <!-- MAIN PANEL -->
+            <div id="metadataContainer"></div>
+
+        </div>
+
+        <button id="saveBtn">Save & Download EPUB</button>
+    </div>
+
+    <!-- Main Script -->
+    <script type="module" src="script.js"></script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+
+</body>
+</html>
