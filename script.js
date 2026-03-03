@@ -268,6 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const xmlText = await zip.files[targetPath].async("text");
         window.bookJson = xmlToJson(xmlText);
+        if(window.bookJson.package._attributes.version ==! '2.0') {
+            alert("Books is not version 2");
+            return;
+        }
         renderSidePanel();
         renderMetadataUI();
         document.getElementById("editorSection").style.display = "block";
