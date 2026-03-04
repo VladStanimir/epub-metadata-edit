@@ -168,8 +168,11 @@ body {
 
     #sidePanel {
         width: 100%;
-        border-right: none;
+        border: none;
         border-bottom: 2px solid #ddd;
-        padding-bottom: 10px;
+        padding: 0;
+    }
+    #metadataContainer {
+        padding: 0;
     }
 }
