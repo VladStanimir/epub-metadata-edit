@@ -7,9 +7,9 @@
     <title>EPUB Metadata Editor</title>
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/epub-metadata-edit/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <!-- App Icon -->
-    <link rel="icon" href="/epub-metadata-edit/icons/icon-192.png">
+    <link rel="icon" href="icons/icon-192.png">
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
@@ -30,7 +30,7 @@
         <div id="layoutWrapper">
             <!-- MAIN PANEL -->
             <div id="metadataContainer"></div>
-            
+
             <!-- SIDE PANEL -->
             <div id="sidePanel">
                 <h3>Add Field</h3>
@@ -47,7 +47,7 @@
     <!-- Register Service Worker -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/epub-metadata-edit/service-worker.js');
+            navigator.serviceWorker.register('service-worker.js');
         }
     </script>
 
