@@ -27,6 +27,9 @@
     <!-- EDITOR SECTION (hidden until EPUB is loaded) -->
     <div id="editorSection" style="display:none;">
 
+        <div id="bookInfo"></div>
+        <div id="validationPanel"></div>
+
         <div id="layoutWrapper">
             <!-- MAIN PANEL -->
             <div id="metadataContainer"></div>
@@ -47,7 +50,8 @@
     <!-- Register Service Worker -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js');
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => registration.update());
         }
     </script>
 
