@@ -275,9 +275,23 @@ body {
     transform: scale(0.98);
 }
 
+#backToTopBtn {
+    display: none;
+}
+
 /* --- Responsive --- */
 
 @media (max-width: 800px) {
+    body {
+        margin: 14px;
+        padding-right: 46px;
+        padding-bottom: 96px;
+    }
+
+    #appTitle {
+        font-size: 26px;
+    }
+
     #layoutWrapper {
         flex-direction: column;
     }
@@ -290,5 +304,38 @@ body {
     }
     #metadataContainer {
         padding: 0;
+    }
+
+    .meta-block,
+    .add-field-btn,
+    #zipInput {
+        touch-action: manipulation;
+    }
+
+    #saveBtn {
+        position: fixed;
+        left: 14px;
+        right: 76px;
+        bottom: 14px;
+        z-index: 20;
+        margin: 0;
+        box-shadow: 0 8px 22px rgba(42, 66, 130, 0.28);
+    }
+
+    #backToTopBtn {
+        display: block;
+        position: fixed;
+        right: 14px;
+        bottom: 82px;
+        z-index: 21;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #c8cfdd;
+        border-radius: 24px;
+        background: #ffffff;
+        color: #33415c;
+        font-weight: 700;
+        box-shadow: 0 8px 20px rgba(40, 45, 60, 0.18);
+        cursor: pointer;
     }
 }
