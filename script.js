@@ -1174,7 +1174,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const newEpubBlob = await zip.generateAsync({
             type: "blob",
-            mimeType: "application/epub+zip"
+            mimeType: "application/epub+zip",
+            compression: "DEFLATE",
+            compressionOptions: { level: 9 }
         });
         const downloadUrl = URL.createObjectURL(newEpubBlob);
 
