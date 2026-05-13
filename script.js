@@ -1151,6 +1151,15 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
+    function getDownloadFileName() {
+        const name = (window.fileName || "edited.epub").trim() || "edited.epub";
+        const withoutZip = name.replace(/\.zip$/i, "");
+
+        return /\.epub$/i.test(withoutZip)
+            ? withoutZip
+            : `${withoutZip}.epub`;
+    }
+
     async function saveEpub() {
         if (!zip || !window.bookJson || !packagePath) {
             alert("Upload an EPUB first");
@@ -1163,12 +1172,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const newXml = jsonToXml(window.bookJson);
         zip.file(packagePath, newXml);
 
-        const newEpubBlob = await zip.generateAsync({ type: "blob" });
+        const newEpubBlob = await zip.generateAsync({
+            type: "blob",
+            mimeType: "application/epub+zip"
+        });
+        const downloadUrl = URL.createObjectURL(newEpubBlob);
 
         const a = document.createElement("a");
-        a.href = URL.createObjectURL(newEpubBlob);
-        a.download = window.fileName;
+        a.href = downloadUrl;
+        a.download = getDownloadFileName();
+        document.body.appendChild(a);
         a.click();
+        a.remove();
+
+        setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
     }
 
     function renderValidationPanel() {
